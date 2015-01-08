@@ -58,4 +58,8 @@ extension Int: ExampleProtocol {
 
 
 
-//
+//You can use a protocol name just like any other named type--for example, to create a collection of objects that have different types but that all comform to a single protocol.Methods outside the protocol definition are not available.
+
+//let protocolValue:ExampleProtocol = aprotocolValue.simpleDescription
+
+
