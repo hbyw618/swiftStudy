@@ -44,6 +44,7 @@ for character in "dog" {
 
 
 
+
 // Create a stand-alone Character constant or variable from a single-character string literal
 
 let yenSign:Character = "$"
@@ -181,3 +182,38 @@ for scene in romeoAndJuliet{
 
 
 // * Unicode Representations of Strings
+//Swift provides several different ways to access Unicode representations. You can iterate over the string with a for-in statement, to access its individual Character values as Unicode extended grapheme clusters.
+
+// Alternatively, access a String value in one of three other Unicode-compliant representations:
+//1. A collection of UTF-8 code units(accessed with the string's utf8 property)
+//2. A collection of UTF-16 code units( accessed with the string's utf-16 property)
+// 3. A Colleciton of 21-bit Unicode scalar values, equivalent to the string's UTF-32 encoding form( accessed with the string's unicodeScalars property)
+
+
+// * UTF-8 representation
+let dogString = "Dog!!🐕"
+
+// utf8 property is of type String.UTF8View, which is a collection of unsigned 8-bit(UInt8) values, one for each byte in the string's UTF-8 representation:
+
+for codeUnit in dogString.utf8{
+    print("\(codeUnit)")
+}
+
+
+// * UTF-16 representation
+
+// utf16 property is of type String.UITF16View, which is a collection of unsigned 16-bit(UInt16) values.
+
+for codeUnit in dogString.utf16{
+    print("\(codeUnit)")
+}
+
+// * Unicode Scalar representation
+// unicodeScalars property ,is of type UnicodeScalaView, which is a collection of values of type UnicodeScalar.
+// Each UnicodeScalar has a value property that returns the scalar's 21-bit value,represent in a UInt32 value:
+
+for scalar in dogString.unicodeScalars {
+    // As an alternative to query value properties, each UnicodeScalar value can also be used to construct a new String value.
+    print("\(scalar)")
+    print("\(scalar.value)")
+}
