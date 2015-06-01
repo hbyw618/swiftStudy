@@ -65,7 +65,10 @@ var ascend = sorted(names,{ s1, s2 in (s1 < s2)})
 // Swift automatically provides shorthand argument names to inline closures, which can be used to refer to the values of the closure's arguments by the names $0, $1, $2, and so on. You can omit the closure's argument list from its definition, and the number and type of the shorthand argument names will be inferred from the expected function type. The in keyword can also be omitted, because the closure expression is made up entirely of its body:
 
 // The official code does not work, we need convert the $0 to remove the ambiguous error.
-reversed = sorted(names, {$0 as String > $1})
+// reversed = sorted(names, {$0 as String  > $1})
+
+// In new Xcode it works now
+reversed = sorted(names, {$0  > $1})
 
 
 // * Operator Functions
@@ -74,7 +77,7 @@ reversed = sorted(names, {$0 as String > $1})
 reversed = sorted(names, >)
 
 // * Trailing Closures
-// If you need to pass a closure expression to a function as the function's final argument and the closure expression is long, it can be useful to write it as a trailing closure indtead. A trailing closure is a closure expression that is written outside of (and after) the parentheses of the function call it supports:
+// If you need to pass a closure expression to a function as the function's final argument and the closure expression is long, it can be useful to write it as a trailing closure instead. A trailing closure is a closure expression that is written outside of (and after) the parentheses of the function call it supports:
 
 
 
@@ -120,6 +123,7 @@ let strings = numbers.map{
     return output
 
 }
+
 
 strings
 
